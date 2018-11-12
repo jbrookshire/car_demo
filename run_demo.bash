@@ -30,7 +30,7 @@ then
     chmod a+r $XAUTH
 fi
 
-sudo nvidia-docker run -it \
+sudo docker run --runtime=nvidia -it \
   -e DISPLAY \
   -e QT_X11_NO_MITSHM=1 \
   -e XAUTHORITY=$XAUTH \
@@ -40,4 +40,5 @@ sudo nvidia-docker run -it \
   -v "/dev/input:/dev/input" \
   --privileged \
   --rm=true \
-  osrf/car_demo
+  osrf/car_demo 
+
